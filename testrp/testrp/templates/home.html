@@ -1,0 +1,22 @@
+<html>
+  <body>
+    <div>
+      Welcome to testrp!
+    </div>
+    <div>
+      {% if request.user.is_authenticated %}
+        <p>Current user: {{ user.email }}</p>
+        <div>
+          <form action="/oidc/logout/" method="POST">
+            {% csrf_token %}
+            <input type="submit" value="Logout"/>
+          </form>
+        </div>
+      {% else %}
+        <a href="{% url 'oidc_authentication_init' %}">
+          Login
+        </a>
+      {% endif %}
+    </div>
+  </body>
+</html>
