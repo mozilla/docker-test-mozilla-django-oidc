@@ -1,0 +1,14 @@
+FROM python:2-stretch
+
+EXPOSE 8080 8081
+
+COPY testprovider /testprovider/
+COPY testrp /testrp/
+
+RUN pip install -r /testprovider/requirements.txt
+RUN pip install -r /testrp/requirements.txt
+
+RUN apt-get update -qqy && \
+    curl -sL https://deb.nodesource.com/setup_6.x | bash  - && \
+    apt-get install -qqy nodejs wait-for-it virtualenv && \
+    npm install -g phantomjs

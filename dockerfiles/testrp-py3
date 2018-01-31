@@ -1,0 +1,7 @@
+FROM python:3-stretch
+EXPOSE 8081
+COPY testrp /code/
+WORKDIR /code
+
+RUN pip install -r requirements.txt
+CMD ./bin/run.sh
