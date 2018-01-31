@@ -1,0 +1,4 @@
+django==1.11
+django-oidc-provider
+django-user-accounts
+pinax-theme-bootstrap

@@ -1,0 +1,14 @@
+<html>
+  <body>
+    <div>
+      Welcome to testprovider!
+    </div>
+    <div>
+      {% if request.user.is_authenticated %}
+        <p>Current user: {{ user.email }}</p>
+      {% else %}
+        <p>User not logged in</p>
+      {% endif %}
+    </div>
+  </body>
+</html>
