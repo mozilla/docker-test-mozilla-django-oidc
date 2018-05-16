@@ -1,4 +1,5 @@
 django==1.11
+djangorestframework
 python-decouple
 mozilla-django-oidc
 splinter
