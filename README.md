@@ -21,6 +21,12 @@ Docker images
 * `e2e-setup-py{2,3}`
     * Dockerized setup for e2e testing of mozilla-django-oidc
 
+Build
+------
+
+We use `make` to automate the docker image workflow.
+For more info run `make help`
+
 Usage
 ------
 
