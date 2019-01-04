@@ -6,6 +6,7 @@ BUILD := $(addprefix build-,${IMAGES})
 PUSH := $(addprefix push-,$(IMAGES))
 PULL := $(addprefix pull-,$(IMAGES))
 TAG := $(addprefix tag-,$(IMAGES))
+CLEAN := $(addprefix clean-,$(IMAGES))
 RELEASE := $(addprefix release-,$(IMAGES))
 
 .PHONY: help
@@ -22,10 +23,13 @@ tag: ${TAG} ## Tag all images
 push: ${PUSH} ## Push all images
 
 .PHONY: pull
-pull: $(PULL) ## Pull all images
+pull: ${PULL} ## Pull all images
 
 .PHONY: release
 release: ${BUILD} ${TAG} ${PUSH} ## Release new images (build/tag/push)
+
+.PHONY: clean
+clean: ${CLEAN}
 
 .PHONY: ${BUILD}
 ${BUILD}: build-%:
@@ -42,3 +46,8 @@ ${PUSH}: push-%:
 .PHONY: ${PULL}
 ${PULL}: pull-%:
 	docker pull ${NS}/$*
+
+.PHONY: ${CLEAN}
+${CLEAN}: clean-%:
+	docker rmi ${NS}/$*
+	docker rmi $*
