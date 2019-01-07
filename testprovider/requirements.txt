@@ -1,4 +1,4 @@
-django==1.11
-django-oidc-provider
+django<=1.12
+django-oidc-provider<=0.6
 django-user-accounts
 pinax-theme-bootstrap
