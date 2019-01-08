@@ -33,21 +33,21 @@ clean: ${CLEAN}
 
 .PHONY: ${BUILD}
 ${BUILD}: build-%:
-	docker build -t $* -f dockerfiles/$* .
+	docker build -t $(subst _py,:py,$(*)) -f dockerfiles/$* .
 
 .PHONY: ${TAG}
 ${TAG}: tag-%:
-	docker tag $* ${NS}/$*
+	docker tag $(subst _py,:py,$(*)) ${NS}/$(subst _py,:py,$(*))
 
 .PHONY: ${PUSH}
 ${PUSH}: push-%:
-	docker push ${NS}/$*
+	docker push ${NS}/$(subst _py,:py,$(*))
 
 .PHONY: ${PULL}
 ${PULL}: pull-%:
-	docker pull ${NS}/$*
+	docker pull ${NS}/$(subst _py,:py,$(*))
 
 .PHONY: ${CLEAN}
 ${CLEAN}: clean-%:
-	docker rmi ${NS}/$*
-	docker rmi $*
+	docker rmi ${NS}/$(subst _py,:py,$(*))
+	docker rmi $(subst _py,:py,$(*))
