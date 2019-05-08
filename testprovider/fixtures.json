@@ -1,5 +1,13 @@
 [
   {
+    "model": "sites.site",
+    "pk": 1,
+    "fields": {
+      "domain": "testprovider:8080",
+      "name": "testprovider"
+    }
+  },
+  {
     "model": "oidc_provider.responsetype",
     "pk": 1,
     "fields": {
