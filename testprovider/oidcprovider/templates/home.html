@@ -1,14 +1,14 @@
-<html>
-  <body>
-    <div>
-      Welcome to testprovider!
-    </div>
-    <div>
-      {% if request.user.is_authenticated %}
-        <p>Current user: {{ user.email }}</p>
-      {% else %}
-        <p>User not logged in</p>
-      {% endif %}
-    </div>
-  </body>
-</html>
+{% extends "site_base.html" %}
+
+{% block head_title %}Home{% endblock %}
+
+{% block body %}
+<h1>Welcome to {% if SITE_NAME %}{{ SITE_NAME }}{% else %}testprovider{% endif %}!</h1>
+<div>
+  {% if request.user.is_authenticated %}
+    <p>Current user: {{ user.email }}</p>
+  {% else %}
+    <p>User not logged in</p>
+  {% endif %}
+</div>
+{% endblock body %}

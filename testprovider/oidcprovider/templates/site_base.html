@@ -1,18 +1,28 @@
 {% extends "theme_bootstrap/base.html" %}
-{% block nav %}
-  <ul class="nav navbar-nav navbar-left">
-    <li><a href="#">Link 1</a>
-      <li><a href="#">Link 2</a>
-  </ul>
+{% load staticfiles %}
 
+{% block footer %}
+    <p>Test OIDC provider</p>
 {% endblock %}
-{%  block footer %}
 
-  <div class="container">
-    <hr>
-    <footer>
-      <p>Test OIDC provider</p>
-    </footer>
-  </div>
+{% block styles %}
+  <link rel="stylesheet" href="{% static 'pinax/css/theme.css' %}">
+  <link rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+  <link rel="stylesheet"
+        href="https://stackpath.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"
+        integrity="sha384-MI32KR77SgI9QAPUs+6R7leEOwtop70UsjEtFEezfKnMjXWx15NENsZpfDgq8m8S"
+        crossorigin="anonymous">
+{% endblock styles %}
 
-{% endblock %}
+{% block scripts %}
+  <script src="https://code.jquery.com/jquery-2.2.4.min.js"
+          integrity="sha384-rY/jv8mMhqDabXSo+UCggqKtdmBfd3qC2/KvyTDNQ6PcUJXaxK1tMepoQda4g5vB"
+          crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+          integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+          crossorigin="anonymous"></script>
+{% endblock scripts %}
+
