@@ -59,4 +59,8 @@ Creating users
 The `testprovider` image has a Django management command for creating users in
 the OIDC provider. This lets you create users on the command line.
 
-Usage: `/code/manage.py createuser USERNAME PASSWORD EMAIL`
+With an already running testprovider container run:
+
+```
+docker exec <container_name> manage.py createuser USERNAME PASSWORD EMAIL
+```
