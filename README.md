@@ -10,6 +10,7 @@ Docker images
 * `testprovider`
     * Provides a docker setup for an OIDC OP with preconfigured OIDC client IDs and secrets
     * OIDC provider endpoint is exposed in port `8080`
+    * Provides a Django management command for creating users
     * Uses `django-oidc-provider`
 * `testrp-py{2,3}`
     * Test django project preconfigured to work with `testprovider`
@@ -50,4 +51,16 @@ services:
       - "8081:8081"
     environment:
       - TEST_OIDC_ALGO=hs
+```
+
+Creating users
+--------------
+
+The `testprovider` image has a Django management command for creating users in
+the OIDC provider. This lets you create users on the command line.
+
+With an already running testprovider container run:
+
+```
+docker exec <container_name> manage.py createuser USERNAME PASSWORD EMAIL
 ```
