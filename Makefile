@@ -1,6 +1,6 @@
 DEFAULT_GOAL := help
 
-NS ?= mozillaparsys
+NS ?= mozilla
 IMAGES := oidc_testprovider oidc_testrunner oidc_testrp_py2 oidc_testrp_py3 oidc_e2e_setup_py2 oidc_e2e_setup_py3
 BUILD := $(addprefix build-,${IMAGES})
 PUSH := $(addprefix push-,$(IMAGES))
