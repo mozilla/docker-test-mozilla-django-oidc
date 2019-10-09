@@ -1,0 +1,78 @@
+# Python CircleCI 2.0 configuration file
+#
+# Check https://circleci.com/docs/2.0/language-python/ for more details
+#
+version: 2
+jobs:
+  build:
+    docker:
+      - image: mozilla/cidockerbases:docker-latest
+    working_directory: /
+
+    steps:
+      - run:
+          name: Get info
+          command: |
+              uname -v
+              docker info
+
+      - run:
+          name: Install essential packages
+          command: apt-get install make
+
+      - checkout:
+          path: /oidc_testprovider
+
+      - run:
+          name: Build Docker images
+          working_directory: /oidc_testprovider
+          command: |
+            make build
+
+      - run:
+          name: Push to Dockerhub on tag
+          working_directory: /oidc_testprovider
+          command: |
+            function retry {
+              set +e
+              local n=0
+              local max=3
+              while true; do
+              "$@" && break || {
+                if [[ $n -lt $max ]]; then
+                  ((n++))
+                  echo "Command failed. Attempt $n/$max:"
+                else
+                  echo "Failed after $n attempts."
+                  exit 1
+                fi
+              }
+              done
+              set -e
+            }
+
+            # push to dockerhub on git tag
+            if [ -n "${CIRCLE_TAG}" ]; then
+              echo "${DOCKER_PASSWORD}" | docker login -u="${DOCKER_USERNAME}" --password-stdin
+              retry docker tag "oidc_testprovider:latest" "mozilla/oidc_testprovider:${CIRCLE_TAG}"
+              retry docker push "mozilla/oidc_testprovider:${CIRCLE_TAG}"
+            fi
+
+
+workflows:
+  version: 2
+
+  # workflow jobs are _not_ run in tag builds by default
+  # we use filters to whitelist jobs that should be run for tags
+
+  # workflow jobs are run in _all_ branch builds by default
+  # we use filters to blacklist jobs that shouldn't be run for a branch
+
+  # see: https://circleci.com/docs/2.0/workflows/#git-tag-job-execution
+
+  build-test-push:
+    jobs:
+      - build:
+          filters:
+            tags:
+              only: /.*/
