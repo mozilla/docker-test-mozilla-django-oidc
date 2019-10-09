@@ -12,9 +12,13 @@ jobs:
     steps:
       - run:
           name: Get info
-          command: |
-              uname -v
-              docker info
+          command: uname -v
+
+      - setup_remote_docker
+
+      - run:
+          name: Get info 
+          command: docker info
 
       - run:
           name: Install essential packages
