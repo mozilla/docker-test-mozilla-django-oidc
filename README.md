@@ -8,10 +8,11 @@ Docker images
 ---------------
 
 * `testprovider`
-    * Provides a docker setup for an OIDC OP with preconfigured OIDC client IDs and secrets
+    * Provides a docker image for an OIDC OP with preconfigured OIDC client IDs and secrets
     * OIDC provider endpoint is exposed in port `8080`
     * Provides a Django management command for creating users
     * Uses `django-oidc-provider`
+    * https://hub.docker.com/r/mozilla/oidc_testprovider
 * `testrp-py{2,3}`
     * Test django project preconfigured to work with `testprovider`
     * Uses `mozilla-django-oidc` as an authentication backend
@@ -26,13 +27,25 @@ Build
 ------
 
 We use `make` to automate the docker image workflow.
-For more info run `make help`
+
+For more info run `make help`.
 
 Usage
 ------
 
 In order for this setup to work `testprovider`, `testrp` hostnames should resolve to the
 IP of the docker image (for local development it's `127.0.0.1`).
+
+You can add the resolution to your `/etc/hosts` file.
+
+You can also use [nip.io](http://nip.io/). For example, if you name the service
+"oidcprovider", then you could have these three variables:
+
+```
+OIDC_OP_AUTHORIZATION_ENDPOINT=http://oidcprovider.127.0.0.1.nip.io:8080/openid/authorize
+OIDC_OP_TOKEN_ENDPOINT=http://oidcprovider.127.0.0.1.nip.io:8080/openid/token
+OIDC_OP_USER_ENDPOINT=http://oidcprovider.127.0.0.1.nip.io:8080/openid/userinfo
+```
 
 Example setup
 ---------------
