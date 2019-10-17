@@ -55,13 +55,26 @@ jobs:
               set -e
             }
 
-            # push to dockerhub on git tag
-            if [ -n "${CIRCLE_TAG}" ]; then
-              echo "${DOCKER_PASSWORD}" | docker login -u="${DOCKER_USERNAME}" --password-stdin
-              retry docker tag "oidc_testprovider:latest" "mozilla/oidc_testprovider:${CIRCLE_TAG}"
-              retry docker push "mozilla/oidc_testprovider:${CIRCLE_TAG}"
-            fi
+            export NAMESPACE=mozilla
+            export IMAGES=(oidc_e2e_setup_py2 oidc_e2e_setup_py3 oidc_testprovider oidc_testrp_py2 oidc_testrp_py3 oidc_testrunner)
 
+            # If a tag was pushed to github, push tagged images and latest
+            # images to Dockerhub
+            if [ -n "${CIRCLE_TAG}" ]; then
+              # Log into Dockerhub
+              echo "${DOCKER_PASSWORD}" | docker login -u="${DOCKER_USERNAME}" --password-stdin
+
+              for IMAGE in $IMAGES
+              do
+                # Tag and push tagged image.
+                retry docker tag "${IMAGE}:latest" "${NAMESPACE}/${IMAGE}:${CIRCLE_TAG}"
+                retry docker push "${NAMESPACE}/${IMAGE}:${CIRCLE_TAG}"
+
+                # Tag and push latest image.
+                retry docker tag "${IMAGE}:latest" "${NAMESPACE}/${IMAGE}:latest"
+                retry docker push "${NAMESPACE}/${IMAGE}:latest"
+              done
+            fi
 
 workflows:
   version: 2
