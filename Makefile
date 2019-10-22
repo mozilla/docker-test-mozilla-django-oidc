@@ -1,6 +1,6 @@
 DEFAULT_GOAL := help
 
-NS ?= mozilla
+NS ?= mozilla/oidc-testprovider
 IMAGES := oidc_testprovider oidc_testrunner oidc_testrp_py2 oidc_testrp_py3 oidc_e2e_setup_py2 oidc_e2e_setup_py3
 BUILD := $(addprefix build-,${IMAGES})
 PULL := $(addprefix pull-,$(IMAGES))
@@ -14,18 +14,18 @@ help:
 build: ${BUILD} ## Build all images
 
 .PHONY: pull
-pull: ${PULL} ## Pull all images
+pull: ${PULL} ## Pull all -latest images
 
 .PHONY: clean
 clean: ${CLEAN} ## Clean images and other artifacts
 
 .PHONY: ${BUILD}
 ${BUILD}: build-%:
-	docker build -t $(subst _py,:py,$(*)) -f dockerfiles/$* .
+	docker build -t $* -f dockerfiles/$* .
 
 .PHONY: ${PULL}
 ${PULL}: pull-%:
-	docker pull ${NS}/$(subst _py,:py,$(*))
+	docker pull ${NS}:$*-latest
 
 .PHONY: ${CLEAN}
 ${CLEAN}: clean-%:
