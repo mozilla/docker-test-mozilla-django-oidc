@@ -55,24 +55,26 @@ jobs:
               set -e
             }
 
-            export NAMESPACE=mozilla
+            # Namespace on dockerhub to push:
+            # https://hub.docker.com/u/mozilla/oidc-testprovider
+            export DOCKER_NAMESPACE=mozilla/oidc-testprovider
             export IMAGES=(oidc_e2e_setup_py2 oidc_e2e_setup_py3 oidc_testprovider oidc_testrp_py2 oidc_testrp_py3 oidc_testrunner)
 
             # If a tag was pushed to github, push tagged images and latest
             # images to Dockerhub
             if [ -n "${CIRCLE_TAG}" ]; then
               # Log into Dockerhub
-              echo "${DOCKER_PASSWORD}" | docker login -u="${DOCKER_USERNAME}" --password-stdin
+              echo "${DOCKER_PASS}" | docker login -u="${DOCKER_USER}" --password-stdin
 
               for IMAGE in $IMAGES
               do
                 # Tag and push tagged image.
-                retry docker tag "${IMAGE}:latest" "${NAMESPACE}/${IMAGE}:${CIRCLE_TAG}"
-                retry docker push "${NAMESPACE}/${IMAGE}:${CIRCLE_TAG}"
+                retry docker tag "${IMAGE}:latest" "${DOCKER_NAMESPACE}:${IMAGE}-${CIRCLE_TAG}"
+                retry docker push "${DOCKER_NAMESPACE}:${IMAGE}-${CIRCLE_TAG}"
 
                 # Tag and push latest image.
-                retry docker tag "${IMAGE}:latest" "${NAMESPACE}/${IMAGE}:latest"
-                retry docker push "${NAMESPACE}/${IMAGE}:latest"
+                retry docker tag "${IMAGE}:latest" "${DOCKER_NAMESPACE}:${IMAGE}-latest"
+                retry docker push "${DOCKER_NAMESPACE}:${IMAGE}-latest"
               done
             fi
 
