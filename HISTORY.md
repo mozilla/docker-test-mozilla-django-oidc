@@ -1,6 +1,14 @@
 HISTORY
 =======
 
+v0.9.1 (October 22nd, 2019)
+---------------------------
+
+Bugs:
+
+* fix `build` and `pull` rules in Makefile to use the correct tags
+
+
 v0.9.0 (October 22nd, 2019)
 ---------------------------
 
