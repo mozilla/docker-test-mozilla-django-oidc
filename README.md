@@ -7,20 +7,22 @@ The purpose of these docker images is to setup a local environment to develop an
 Docker images
 ---------------
 
-* `testprovider`
+All images are pushed to: https://hub.docker.com/u/mozilla/oidc-testprovider
+
+* `oidc_testprovider`
     * Provides a docker image for an OIDC OP with preconfigured OIDC client IDs and secrets
     * OIDC provider endpoint is exposed in port `8080`
     * Provides a Django management command for creating users
     * Uses `django-oidc-provider`
-    * https://hub.docker.com/r/mozilla/oidc_testprovider
-* `testrp-py{2,3}`
+* `oidc_testrunner`
+* `oidc_testrp_py{2,3}`
     * Test django project preconfigured to work with `testprovider`
     * Uses `mozilla-django-oidc` as an authentication backend
     * Test RP is exposed in port `8081`
     * Builds based in both python 2/3
     * Environment variables
         * `TEST_OIDC_ALGO={hs,rs}`
-* `e2e-setup-py{2,3}`
+* `oidc_e2e_setup_py{2,3}`
     * Dockerized setup for e2e testing of mozilla-django-oidc
 
 Build
