@@ -66,8 +66,11 @@ jobs:
               # Log into Dockerhub
               echo "${DOCKER_PASS}" | docker login -u="${DOCKER_USER}" --password-stdin
 
-              for IMAGE in $IMAGES
+              for IMAGE in "${IMAGES[@]}"
               do
+                echo ""
+                echo ">>> WORKING ON ${IMAGE}..."
+                echo ""
                 # Tag and push tagged image.
                 retry docker tag "${IMAGE}:latest" "${DOCKER_NAMESPACE}:${IMAGE}-${CIRCLE_TAG}"
                 retry docker push "${DOCKER_NAMESPACE}:${IMAGE}-${CIRCLE_TAG}"
