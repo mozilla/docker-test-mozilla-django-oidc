@@ -1,6 +1,12 @@
 HISTORY
 =======
 
+v0.9.2 (October 22nd, 2019)
+---------------------------
+
+No substantive changes. Doing a new tag so as to push images to dockerhub.
+
+
 v0.9.1 (October 22nd, 2019)
 ---------------------------
 
