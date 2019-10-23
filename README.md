@@ -7,7 +7,7 @@ The purpose of these docker images is to setup a local environment to develop an
 Docker images
 ---------------
 
-All images are pushed to: https://hub.docker.com/u/mozilla/oidc-testprovider
+All images are pushed to: https://hub.docker.com/r/mozilla/oidc-testprovider
 
 * `oidc_testprovider`
     * Provides a docker image for an OIDC OP with preconfigured OIDC client IDs and secrets
