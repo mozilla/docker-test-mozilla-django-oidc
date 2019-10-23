@@ -77,5 +77,5 @@ the OIDC provider. This lets you create users on the command line.
 With an already running testprovider container run:
 
 ```
-docker exec <container_name> manage.py createuser USERNAME PASSWORD EMAIL
+docker exec CONTAINER manage.py createuser USERNAME PASSWORD EMAIL
 ```
