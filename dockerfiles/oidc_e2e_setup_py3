@@ -2,15 +2,19 @@ FROM python:3.6-stretch
 
 EXPOSE 8080 8081
 
+RUN pip install virtualenv
+RUN virtualenv /testrp_env
+RUN virtualenv /testprovider_env
+
 COPY testprovider /testprovider/
 COPY testrp /testrp/
 
-RUN pip install -r /testprovider/requirements.txt
-RUN pip install -r /testrp/requirements.txt
+RUN . /testprovider_env/bin/activate && pip install -r /testprovider/requirements.txt
+RUN . /testrp_env/bin/activate && pip install -r /testrp/requirements.txt
 
 # Install python and python dependencies
 RUN apt-get update && \
-    apt-get install -y wait-for-it virtualenv
+    apt-get install -y wait-for-it
 
 # Install firefox
 RUN apt-get install -y --no-install-recommends firefox-esr && \
