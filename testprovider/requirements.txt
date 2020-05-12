@@ -1,4 +1,4 @@
-django<3
+django==2.2.12
 django-oidc-provider
 django-user-accounts
 pinax-theme-bootstrap
