@@ -1,5 +1,5 @@
 django==1.11.29 ; python_version < '3.0'
-django==2.2.12 ; python_version >= '3.0'
+django==2.2.13 ; python_version >= '3.0'
 django-oidc-provider
 django-user-accounts
 pinax-theme-bootstrap
