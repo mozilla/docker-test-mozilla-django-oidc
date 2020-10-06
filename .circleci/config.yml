@@ -14,7 +14,8 @@ jobs:
           name: Get info
           command: uname -v
 
-      - setup_remote_docker
+      - setup_remote_docker:
+          version: 19.03.13
 
       - run:
           name: Get info 
