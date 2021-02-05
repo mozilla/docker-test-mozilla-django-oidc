@@ -16,10 +16,9 @@ import os
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
+# NOTE(willkg): This is used solely as a test environment. We put the key here
+# in code and check it in with the full expectation that you don't use this in
+# a production environment.
 SECRET_KEY = '_brj&4ea0ec%ybc(rz32jpqwypdy4@d9lttg&g7!^e(m!-52si'
 SESSION_COOKIE_NAME = 'oidcprovider'
 

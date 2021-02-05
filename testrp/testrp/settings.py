@@ -19,13 +19,10 @@ from decouple import config
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
+# NOTE(willkg): This is used solely as a test environment. We put the key here
+# in code and check it in with the full expectation that you don't use this in
+# a production environment.
 SECRET_KEY = '@n!q#(pw!ta3_^*!i7&8m(ev91qdju(5^ijx)a%5+upwv+s_u-'
-
-# SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
 ALLOWED_HOSTS = ['*']
