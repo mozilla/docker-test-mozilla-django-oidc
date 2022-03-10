@@ -62,14 +62,13 @@ All images are pushed to: https://hub.docker.com/r/mozilla/oidc-testprovider
 
 * `oidc_testprovider` (See above)
 * `oidc_testrunner`
-* `oidc_testrp_py{2,3}`
+* `oidc_testrp_py3`
     * Test django project preconfigured to work with `testprovider`
     * Uses `mozilla-django-oidc` as an authentication backend
     * Test RP is exposed in port `8081`
-    * Builds based in both python 2/3
     * Environment variables
         * `TEST_OIDC_ALGO={hs,rs}`
-* `oidc_e2e_setup_py{2,3}`
+* `oidc_e2e_setup_py3`
     * Dockerized setup for e2e testing of mozilla-django-oidc
 
 
