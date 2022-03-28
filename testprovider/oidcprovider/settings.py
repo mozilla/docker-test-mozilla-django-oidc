@@ -39,7 +39,6 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "django.contrib.sites",
-
     "oidc_provider",
     "oidcprovider",
     "account",
@@ -53,10 +52,9 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
-
     # django-user-accounts
     "account.middleware.LocaleMiddleware",
-    "account.middleware.TimezoneMiddleware"
+    "account.middleware.TimezoneMiddleware",
 ]
 
 ROOT_URLCONF = "oidcprovider.urls"
