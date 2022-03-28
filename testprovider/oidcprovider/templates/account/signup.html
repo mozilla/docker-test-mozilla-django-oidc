@@ -28,7 +28,12 @@
     <input class="form-control" id="id_password_confirm" type="password" name="password_confirm" required>
   </div>
 
-  <button class="btn btn-primary" type="submit">Sign up</button>
+  <div class="mb-3">
+    {% if redirect_field_value %}
+      <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}">
+    {% endif %}
+    <button class="btn btn-primary" type="submit">Sign up</button>
+  </div>
 </form>
 <p>
   <small>Already have an account? <a href="{% url "account_login" %}">Log in</a></small>
