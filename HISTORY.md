@@ -1,6 +1,14 @@
 HISTORY
 =======
 
+v0.10.1 (March 28, 2022)
+------------------------
+
+Bugs:
+
+* fix redirect in login and signup forms (#37)
+
+
 v0.10.0 (March 28, 2022)
 ------------------------
 
