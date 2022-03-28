@@ -12,6 +12,7 @@ https://hub.docker.com/r/mozilla/oidc-testprovider/tags?name=testprovider
 * OIDC provider endpoint is exposed in port `8080`
 * Provides a Django management command for creating users
 * Uses `django-oidc-provider`
+* Great for local development environments!
 
 
 ### Usage

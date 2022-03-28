@@ -1,3 +1,4 @@
+---
 # Python CircleCI 2.0 configuration file
 #
 # Check https://circleci.com/docs/2.0/language-python/ for more details
@@ -6,37 +7,33 @@ version: 2
 jobs:
   build:
     docker:
-      - image: mozilla/cidockerbases:docker-latest
-    working_directory: /
+      - image: cimg/python:3.10.2
+        auth:
+          username: $DOCKER_USER
+          password: $DOCKER_PASS
 
     steps:
+      - checkout
+
       - run:
           name: Get info
           command: uname -v
 
       - setup_remote_docker:
-          version: 19.03.13
+          version: 20.10.11
 
       - run:
-          name: Get info 
+          name: Get info
           command: docker info
 
       - run:
-          name: Install essential packages
-          command: apt-get install make
-
-      - checkout:
-          path: /oidc_testprovider
-
-      - run:
           name: Build Docker images
-          working_directory: /oidc_testprovider
           command: |
             make build
 
       - run:
           name: Push to Dockerhub on tag
-          working_directory: /oidc_testprovider
+          # yamllint disable rule:line-length
           command: |
             function retry {
               set +e
@@ -59,7 +56,7 @@ jobs:
             # Namespace on dockerhub to push:
             # https://hub.docker.com/u/mozilla/oidc-testprovider
             export DOCKER_NAMESPACE=mozilla/oidc-testprovider
-            export IMAGES=(oidc_e2e_setup_py2 oidc_e2e_setup_py3 oidc_testprovider oidc_testrp_py2 oidc_testrp_py3 oidc_testrunner)
+            export IMAGES=(oidc_e2e_setup_py3 oidc_testprovider oidc_testrp_py3 oidc_testrunner)
 
             # If a tag was pushed to github, push tagged images and latest
             # images to Dockerhub
@@ -81,6 +78,7 @@ jobs:
                 retry docker push "${DOCKER_NAMESPACE}:${IMAGE}-latest"
               done
             fi
+          # yamllint enable rule:line-length
 
 workflows:
   version: 2
