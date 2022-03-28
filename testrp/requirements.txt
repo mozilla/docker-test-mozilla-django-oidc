@@ -1,4 +1,4 @@
-django
+django==3.2.12
 djangorestframework
 python-decouple
 mozilla-django-oidc

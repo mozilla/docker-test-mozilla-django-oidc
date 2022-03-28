@@ -1,14 +1,20 @@
 {% extends "site_base.html" %}
 
-{% block head_title %}Home{% endblock %}
+{% block head_title %}: Home{% endblock %}
 
 {% block body %}
-<h1>Welcome to {% if SITE_NAME %}{{ SITE_NAME }}{% else %}testprovider{% endif %}!</h1>
-<div>
-  {% if request.user.is_authenticated %}
-    <p>Current user: {{ user.email }}</p>
-  {% else %}
-    <p>User not logged in</p>
-  {% endif %}
-</div>
+<h1 class="my-5">Usage</h1>
+<p class="py-1">
+  The OIDC Test Provider is designed primarily for OIDC authentication in a
+  local dev environment.
+</p>
+<p class="py-1">
+  To create a user, sign up using the link above.
+</p>
+<p class="py-1">
+  You can also programmitcally create users by:
+</p>
+<pre class="border border-1 py-1">
+  $ docker-compose exec THISIMAGE manage.py createuser USERNAME PASSWORD EMAIL
+</pre>
 {% endblock body %}
