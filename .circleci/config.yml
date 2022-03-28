@@ -1,3 +1,4 @@
+---
 # Python CircleCI 2.0 configuration file
 #
 # Check https://circleci.com/docs/2.0/language-python/ for more details
@@ -18,7 +19,7 @@ jobs:
           version: 19.03.13
 
       - run:
-          name: Get info 
+          name: Get info
           command: docker info
 
       - run:
@@ -37,6 +38,7 @@ jobs:
       - run:
           name: Push to Dockerhub on tag
           working_directory: /oidc_testprovider
+          # yamllint disable rule:line-length
           command: |
             function retry {
               set +e
@@ -81,6 +83,7 @@ jobs:
                 retry docker push "${DOCKER_NAMESPACE}:${IMAGE}-latest"
               done
             fi
+          # yamllint enable rule:line-length
 
 workflows:
   version: 2
