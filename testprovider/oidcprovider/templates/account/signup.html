@@ -1,0 +1,36 @@
+
+{% extends "site_base.html" %}
+
+{% block body %}
+<h1 class="my-5">Sign up</h1>
+
+{% if form.errors %}
+  <p class="py-2">{{ form.errors }}</p>
+{% endif %}
+
+<form action="{% url "account_signup" %}" method="post" class="py-3">
+  {% csrf_token %}
+
+  <div class="mb-3">
+    <label class="form-label" for="id_username">Username:</label>
+    <input class="form-control" id="id_username" type="text" name ="username" maxlength="30" required>
+  </div>
+  <div class="mb-3">
+    <label class="form-label" for="id_email">Email:</label>
+    <input class="form-control" id="id_email" type="text" name="email" required>
+  </div>
+  <div class="mb-3">
+    <label class="form-label" for="id_password">Password:</label>
+    <input class="form-control" id="id_password" type="password" name="password" required>
+  </div>
+  <div class="mb-3">
+    <label class="form-label" for="id_password_confirm">Password (again):</label>
+    <input class="form-control" id="id_password_confirm" type="password" name="password_confirm" required>
+  </div>
+
+  <button class="btn btn-primary" type="submit">Sign up</button>
+</form>
+<p>
+  <small>Already have an account? <a href="{% url "account_login" %}">Log in</a></small>
+</p>
+{% endblock body %}

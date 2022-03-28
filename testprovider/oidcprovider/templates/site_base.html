@@ -1,28 +1,51 @@
-{% extends "theme_bootstrap/base.html" %}
 {% load static %}
+<!DOCTYPE html>
 
-{% block footer %}
-    <p>Test OIDC provider</p>
+<html lang="en" class="h-100">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/static/bootstrap-5.1.3/bootstrap.min.css">
+    <title>OIDC Test Provider {% block head_title %}{% endblock %}</title>
+  </head>
+  <body class="d-flex flex-column h-100">
+    <header>
+      <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <div class="container">
+            <a class="navbar-brand" href="/">OIDC Test Provider</a>
+              {% if request.user.is_authenticated %}
+                <ul class="navbar-nav me-auto">
+                  <li class="nav-item"><a class="nav-link" href="/account/logout/">Logout</a></li>
+                </ul>
+                <span class="nav-text">Welcome {{ user.email }}!</span>
+              {% else %}
+                <ul class="navbar-nav me-auto">
+                  <li class="nav-item"><a class="nav-link" href="/account/login/">Log in</a></li>
+                  <li class="nav-item"><a class="nav-link" href="/account/signup/">Sign up</a></li>
+                </ul>
+              {% endif %}
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <main class="flex-shrink-0">
+      <div class="container">
+{% block body %}
 {% endblock %}
+      </div>
+    </main>
 
-{% block styles %}
-  <link rel="stylesheet" href="{% static 'pinax/css/theme.css' %}">
-  <link rel="stylesheet"
-        href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
-        crossorigin="anonymous">
-  <link rel="stylesheet"
-        href="https://stackpath.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"
-        integrity="sha384-MI32KR77SgI9QAPUs+6R7leEOwtop70UsjEtFEezfKnMjXWx15NENsZpfDgq8m8S"
-        crossorigin="anonymous">
-{% endblock styles %}
-
-{% block scripts %}
-  <script src="https://code.jquery.com/jquery-2.2.4.min.js"
-          integrity="sha384-rY/jv8mMhqDabXSo+UCggqKtdmBfd3qC2/KvyTDNQ6PcUJXaxK1tMepoQda4g5vB"
-          crossorigin="anonymous"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
-          integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
-          crossorigin="anonymous"></script>
-{% endblock scripts %}
-
+    <footer class="footer mt-auto">
+      <div class="container bg-light py-3">
+        <small>
+          OIDC Test Provider /
+          <a href="https://github.com/mozilla/docker-test-mozilla-django-oidc/">docker-test-mozilla-django-oidc</a> /
+          <a href="https://github.com/mozilla/docker-test-mozilla-django-oidc/issues">issues</a>
+        </small>
+      </div>
+    </footer>
+  </body>
+</html>
