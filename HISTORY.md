@@ -1,6 +1,27 @@
 HISTORY
 =======
 
+v0.10.0 (March 28, 2022)
+------------------------
+
+Bugs:
+
+* drop support for < Python 3.7 (#21) (#31)
+* update to Django 3.2.12 (LTS) (#30)
+* drop pinax-theme-bootstrap requirement
+* switch from ci-docker-bases to cimg/python for CI (#29)
+
+
+v0.9.4 (December 31, 2019)
+--------------------------
+
+Bugs:
+
+* fix django version for testprovider
+* fix backwards incompatible chagnes for Django 3.x
+* improve README
+
+
 v0.9.3 (October 23rd, 2019)
 ---------------------------
 
