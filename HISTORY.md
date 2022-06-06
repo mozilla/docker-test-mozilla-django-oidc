@@ -1,6 +1,15 @@
 HISTORY
 =======
 
+v0.10.2 (June 6, 2022)
+----------------------
+
+Bugs:
+
+* create oidc_e2e_setup_py for each supported Python version (#43)
+* update docs
+
+
 v0.10.1 (March 28, 2022)
 ------------------------
 
