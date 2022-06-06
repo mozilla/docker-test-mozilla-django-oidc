@@ -1,7 +1,7 @@
 DEFAULT_GOAL := help
 
 NS ?= mozilla/oidc-testprovider
-IMAGES := oidc_testprovider oidc_testrunner oidc_testrp_py3 oidc_e2e_setup_py3
+IMAGES := oidc_testprovider oidc_testrunner oidc_testrp_py3 oidc_e2e_setup_py37 oidc_e2e_setup_py38 oidc_e2e_setup_py39 oidc_e2e_setup_py310
 BUILD := $(addprefix build-,${IMAGES})
 PULL := $(addprefix pull-,$(IMAGES))
 CLEAN := $(addprefix clean-,$(IMAGES))
