@@ -56,7 +56,14 @@ jobs:
             # Namespace on dockerhub to push:
             # https://hub.docker.com/u/mozilla/oidc-testprovider
             export DOCKER_NAMESPACE=mozilla/oidc-testprovider
-            export IMAGES=(oidc_e2e_setup_py3 oidc_testprovider oidc_testrp_py3 oidc_testrunner)
+            export IMAGES=(oidc_e2e_setup_py37 oidc_e2e_setup_py38 oidc_e2e_setup_py39 oidc_e2e_setup_py310 oidc_testprovider oidc_testrp_py3 oidc_testrunner)
+
+            # Iterate through the iamges to make srue they all exist to reduce
+            # likelihood we create/remove images without updating it here, too
+            for IMAGE in "${IMAGES[@]}"
+            do
+              docker image history "${IMAGE}:latest"
+            done
 
             # If a tag was pushed to github, push tagged images and latest
             # images to Dockerhub
