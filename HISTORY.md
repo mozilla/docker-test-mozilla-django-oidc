@@ -1,6 +1,14 @@
 HISTORY
 =======
 
+v0.10.3 (June 6, 2022)
+----------------------
+
+Bugs:
+
+* fix circleci job to push images (#45)
+
+
 v0.10.2 (June 6, 2022)
 ----------------------
 
