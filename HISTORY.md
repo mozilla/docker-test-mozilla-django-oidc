@@ -1,6 +1,14 @@
 HISTORY
 =======
 
+v0.10.4 (June 8, 2022)
+----------------------
+
+Bugs:
+
+* add selenium to requirements for e2e images
+
+
 v0.10.3 (June 6, 2022)
 ----------------------
 
