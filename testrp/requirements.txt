@@ -3,4 +3,4 @@ djangorestframework
 python-decouple
 mozilla-django-oidc
 six
-splinter
+splinter[selenium3]
