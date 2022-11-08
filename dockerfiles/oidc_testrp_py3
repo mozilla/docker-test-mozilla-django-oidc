@@ -1,4 +1,4 @@
-FROM python:3.7-stretch
+FROM python:3.7-bullseye
 EXPOSE 8081
 COPY testrp /code/
 WORKDIR /code
