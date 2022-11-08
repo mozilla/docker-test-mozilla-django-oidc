@@ -3,7 +3,7 @@ FROM python:3.7-bullseye
 # Install python and python dependencies
 RUN apt-get update && \
     apt-get install -y wait-for-it && \
-    pip install six splinter
+    pip install splinter[selenium3]
 
 # Install firefox
 RUN apt-get install -y --no-install-recommends firefox-esr && \
