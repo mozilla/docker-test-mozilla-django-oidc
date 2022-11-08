@@ -1,6 +1,5 @@
-django==3.2.13
+django==3.2.16
 djangorestframework
 python-decouple
 mozilla-django-oidc
-six
 splinter[selenium3]

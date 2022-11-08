@@ -130,11 +130,3 @@ STATIC_URL = "/static/"
 # OIDC provider settings
 LOGIN_URL = "/account/login/"
 ACCOUNT_EMAIL_CONFIRMATION_EMAIL = False
-
-
-# Workaround to actually delete the account instead of marking it as inactive
-def _delete_user(obj):
-    obj.user.delete()
-
-
-ACCOUNT_DELETION_MARK_CALLBACK = _delete_user

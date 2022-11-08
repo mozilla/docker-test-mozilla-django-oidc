@@ -1,9 +1,9 @@
-FROM python:3.7-stretch
+FROM python:3.7-bullseye
 
 # Install python and python dependencies
 RUN apt-get update && \
     apt-get install -y wait-for-it && \
-    pip install six splinter
+    pip install splinter[selenium3]
 
 # Install firefox
 RUN apt-get install -y --no-install-recommends firefox-esr && \
@@ -13,6 +13,6 @@ RUN apt-get install -y --no-install-recommends firefox-esr && \
     ln -s /opt/firefox/firefox /usr/bin/firefox
 
 # Install geckodriver
-RUN wget "https://github.com/mozilla/geckodriver/releases/download/v0.23.0/geckodriver-v0.23.0-linux32.tar.gz" -O /tmp/geckodriver.tar.gz && \
+RUN wget "https://github.com/mozilla/geckodriver/releases/download/v0.32.0/geckodriver-v0.32.0-linux64.tar.gz" -O /tmp/geckodriver.tar.gz && \
     tar xvf /tmp/geckodriver.tar.gz -C /opt && \
     ln -s /opt/geckodriver /usr/bin/geckodriver
