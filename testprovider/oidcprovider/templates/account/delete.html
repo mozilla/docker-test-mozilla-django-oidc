@@ -1,0 +1,14 @@
+{% extends "site_base.html" %}
+
+{% block body %}
+<h1 class="my-5">Account Deletion</h1>
+
+{% if form.errors %}
+  <p class="py-2">{{ form.errors }}</p>
+{% endif %}
+
+<form method="post" action="{% url "delete_user" %}">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger">Delete My Account</button>
+</form>
+{% endblock body %}
