@@ -1,6 +1,17 @@
 HISTORY
 =======
 
+v0.10.5 (November 8, 2022)
+--------------------------
+
+Bugs:
+
+* add delete user view to testprovider
+* add selenium3 to requirements
+* bump geckodriver to version 0.32
+* upgrade to bullseye
+
+
 v0.10.4 (June 8, 2022)
 ----------------------
 
