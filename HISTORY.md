@@ -1,6 +1,14 @@
 HISTORY
 =======
 
+v0.10.6 (November 8, 2022)
+-----------------------------
+
+Bugs:
+
+* replace url with re_path in testrp
+
+
 v0.10.5 (November 8, 2022)
 --------------------------
 

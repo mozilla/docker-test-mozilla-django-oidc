@@ -1,10 +1,10 @@
-from django.conf.urls import include, url
+from django.urls import include, re_path
 
 from .views import HomePageView, TestAPIView
 
 
 urlpatterns = [
-    url(r'^oidc/', include('mozilla_django_oidc.urls')),
-    url(r'^api/$', TestAPIView.as_view(), name='api'),
-    url(r'^$', HomePageView.as_view(), name='home')
+    re_path(r"^oidc/", include("mozilla_django_oidc.urls")),
+    re_path(r"^api/$", TestAPIView.as_view(), name="api"),
+    re_path(r"^$", HomePageView.as_view(), name="home"),
 ]
