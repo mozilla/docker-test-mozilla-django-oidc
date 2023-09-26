@@ -1,4 +1,4 @@
-FROM python:3.8-bullseye
+FROM python:3.8-bookworm
 EXPOSE 8081
 COPY testrp /code/
 WORKDIR /code
