@@ -1,6 +1,19 @@
 HISTORY
 =======
 
+v0.10.9 (November 6, 2023)
+--------------------------
+
+Changes:
+
+* Update oidc_e2e_setuppy311 python version
+* Bump django from 3.2.20 to 3.2.23 in /testprovider
+* Bump django from 3.2.20 to 3.2.23 in /testrp
+* Add support for Python 3.12 (#70)
+* Update debian version and python versions in docker images (#71)
+* Drop support for Python 3.7 and update docker images (#67)
+
+
 v0.10.8 (July 12, 2023)
 -----------------------
 
