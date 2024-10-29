@@ -4,4 +4,4 @@ COPY testprovider /code/
 WORKDIR /code
 
 RUN pip install -r requirements.txt
-CMD ./bin/run.sh
+ENTRYPOINT ["/code/bin/run.sh"]
