@@ -1,14 +1,15 @@
 HISTORY
 =======
 
-v0.10.10 (in development)
--------------------------
+v0.10.10 (October 29th, 2024)
+-----------------------------
 
 Changes:
 
 * Drop support for Python 3.8 (#87)
 * Add support for Python 3.13 (#88)
 * Update Python versions in Docker images
+* Bump django from 3.2.25 to 4.2.16 in /testprovider
 
 
 v0.10.9 (November 6, 2023)
