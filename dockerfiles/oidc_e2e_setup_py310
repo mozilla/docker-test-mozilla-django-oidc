@@ -1,4 +1,4 @@
-FROM python:3.10.13-bookworm
+FROM python:3.10.15-bookworm
 
 EXPOSE 8080 8081
 

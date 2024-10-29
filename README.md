@@ -39,7 +39,7 @@ OIDC_OP_USER_ENDPOINT=http://oidcprovider.127.0.0.1.nip.io:8080/openid/userinfo
 version: '3'
 services:
   testprovider:
-    image: mozilla/oidc-testprovider:oidc_testprovider-v0.9.3
+    image: mozilla/oidc-testprovider:oidc_testprovider-v0.10.9
     ports:
       - "8080:8080"
 ```
@@ -92,7 +92,7 @@ All images are pushed to: https://hub.docker.com/r/mozilla/oidc-testprovider
 version: '3'
 services:
   testrp:
-    image: mozilla/oidc-testprovider:oidc_testrp_py3-v0.9.3
+    image: mozilla/oidc-testprovider:oidc_testrp_py3-v0.10.9
     ports:
       - "8081:8081"
     environment:
