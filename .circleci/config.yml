@@ -61,6 +61,7 @@ jobs:
               oidc_e2e_setup_py310
               oidc_e2e_setup_py311
               oidc_e2e_setup_py312
+              oidc_e2e_setup_py313
               oidc_testprovider
               oidc_testrp_py3
               oidc_testrunner
