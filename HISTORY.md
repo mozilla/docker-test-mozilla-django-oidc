@@ -1,6 +1,16 @@
 HISTORY
 =======
 
+v0.10.11 (December 5th, 2025)
+-----------------------------
+
+Changes:
+
+* Add support for Python 3.14 (#107)
+* Update Python versions in Docker images
+* Update Django to 4.2.27 in /testrp and /testprovider
+
+
 v0.10.10 (October 29th, 2024)
 -----------------------------
 
