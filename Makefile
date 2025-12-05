@@ -10,6 +10,7 @@ IMAGES += oidc_e2e_setup_py310
 IMAGES += oidc_e2e_setup_py311
 IMAGES += oidc_e2e_setup_py312
 IMAGES += oidc_e2e_setup_py313
+IMAGES += oidc_e2e_setup_py314
 
 BUILD := $(addprefix build-,${IMAGES})
 PULL := $(addprefix pull-,$(IMAGES))
