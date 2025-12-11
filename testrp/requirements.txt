@@ -2,4 +2,4 @@ django==4.2.27
 djangorestframework
 python-decouple
 mozilla-django-oidc
-splinter[selenium3]
+splinter[selenium]

@@ -39,7 +39,7 @@ OIDC_OP_USER_ENDPOINT=http://oidcprovider.127.0.0.1.nip.io:8080/openid/userinfo
 version: '3'
 services:
   testprovider:
-    image: mozilla/oidc-testprovider:oidc_testprovider-v0.10.9
+    image: mozilla/oidc-testprovider:oidc_testprovider-v0.10.12
     ports:
       - "8080:8080"
 ```
@@ -65,7 +65,6 @@ These images are used for the end-to-end testing for [mozilla-django-oidc](https
 
 We will maintain an image for each supported Python version. Currently, that's:
 
-* Python 3.9
 * Python 3.10
 * Python 3.11
 * Python 3.12
@@ -94,7 +93,7 @@ All images are pushed to: https://hub.docker.com/r/mozilla/oidc-testprovider
 version: '3'
 services:
   testrp:
-    image: mozilla/oidc-testprovider:oidc_testrp_py3-v0.10.9
+    image: mozilla/oidc-testprovider:oidc_testrp_py3-v0.10.12
     ports:
       - "8081:8081"
     environment:

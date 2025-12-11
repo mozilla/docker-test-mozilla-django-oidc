@@ -1,9 +1,9 @@
-FROM python:3.9-bookworm
+FROM python:3.11.14-bookworm
 
 # Install python and python dependencies
 RUN apt-get update && \
     apt-get install -y wait-for-it && \
-    pip install splinter[selenium3]
+    pip install splinter[selenium]
 
 # Install firefox
 RUN apt-get install -y --no-install-recommends firefox-esr && \
@@ -13,6 +13,6 @@ RUN apt-get install -y --no-install-recommends firefox-esr && \
     ln -s /opt/firefox/firefox /usr/bin/firefox
 
 # Install geckodriver
-RUN wget "https://github.com/mozilla/geckodriver/releases/download/v0.32.0/geckodriver-v0.32.0-linux64.tar.gz" -O /tmp/geckodriver.tar.gz && \
+RUN wget "https://github.com/mozilla/geckodriver/releases/download/v0.36.0/geckodriver-v0.36.0-linux64.tar.gz" -O /tmp/geckodriver.tar.gz && \
     tar xvf /tmp/geckodriver.tar.gz -C /opt && \
     ln -s /opt/geckodriver /usr/bin/geckodriver
