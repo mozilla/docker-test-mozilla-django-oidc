@@ -1,7 +1,7 @@
 HISTORY
 =======
 
-v0.10.12 (TBD)
+v0.10.12 (December 12th, 2025)
 -----------------------------
 
 Changes:
@@ -9,6 +9,7 @@ Changes:
 * Drop support for Python 3.9
 * Update Python versions in testrp, testrunner, and testprovider Docker images
 * Update geckodriver to 0.36.0 in Docker images
+* Docker image improvements
 
 
 v0.10.11 (December 5th, 2025)
