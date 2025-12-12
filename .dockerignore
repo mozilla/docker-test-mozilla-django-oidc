@@ -1,0 +1,61 @@
+# Git
+.git
+.gitignore
+.gitattributes
+
+# CI/CD
+.circleci
+.github
+
+# Documentation
+*.md
+*.rst
+*.txt
+!requirements.txt
+
+# Python
+__pycache__
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info
+dist
+build
+.pytest_cache
+.coverage
+htmlcov
+.tox
+.mypy_cache
+.dmypy.json
+dmypy.json
+.pyre
+.pytype
+*.log
+
+# Virtual environments
+venv
+env
+ENV
+.venv
+
+# IDEs
+.vscode
+.idea
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Testing
+.pytest_cache
+.coverage
+htmlcov
+
+# Makefile and build artifacts
+Makefile
+
+# License and legal
+LICENSE
+CODE_OF_CONDUCT.md
+HISTORY.md
