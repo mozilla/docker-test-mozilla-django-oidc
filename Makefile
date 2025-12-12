@@ -5,7 +5,6 @@ NS ?= mozilla/oidc-testprovider
 IMAGES := oidc_testprovider
 IMAGES += oidc_testrunner
 IMAGES += oidc_testrp_py3
-IMAGES += oidc_e2e_setup_py39
 IMAGES += oidc_e2e_setup_py310
 IMAGES += oidc_e2e_setup_py311
 IMAGES += oidc_e2e_setup_py312
